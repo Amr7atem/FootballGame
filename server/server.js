@@ -8,9 +8,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB using environment variables
-mongoose.connect(process.env.DB_URL, {
-  // Add any other options as needed
-});
+mongoose
+  .connect(process.env.DB_URL, {
+    // Add any other options as needed
+  })
+  .then(() => console.log("MongoDB Connected!"))
+  .catch((err) => console.log(err));
 
 app.use(bodyParser.json());
 
